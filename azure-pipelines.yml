@@ -23,7 +23,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    goals: 'clean test'
     options: '-Dmaven.test.failure.ignore=true'
 - task: octane-end-task@1
   inputs:
