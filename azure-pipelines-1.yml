@@ -6,10 +6,12 @@
 trigger:
 - master
 
-pool:
-  vmImage: ubuntu-latest
-
+pool:'Azure Pipelines'
 steps:
+- task: octane-start-task@1
+  inputs:
+    OctaneServiceConnection: 'OctaneNightlyConnection'
+    WorkspaceList: '1004'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -20,3 +22,8 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: octane-end-task@1
+  inputs:
+    OctaneServiceConnection: 'OctaneNightlyConnection'
+    WorkspaceList: '1004'
+    CucumberReportPath: 'gherkin-results'
