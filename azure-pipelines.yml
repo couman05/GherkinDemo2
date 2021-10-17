@@ -21,7 +21,7 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
+    publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
     options: '-Dmaven.test.failure.ignore=true'
@@ -29,4 +29,4 @@ steps:
   inputs:
     OctaneServiceConnection: 'OctaneNightlyConnection'
     WorkspaceList: '1004'
-    CucumberReportPath: '**/test-classes/**/*.xml'
+    CucumberReportPath: '**/*OctaneGherkinResults.xml'
