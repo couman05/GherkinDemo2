@@ -13,7 +13,7 @@ steps:
 - task: octane-start-task@1
   inputs:
     OctaneServiceConnection: 'OctaneNightlyConnection'
-    WorkspaceList: '1004'
+    WorkspaceList: '1005'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -28,5 +28,5 @@ steps:
 - task: octane-end-task@1
   inputs:
     OctaneServiceConnection: 'OctaneNightlyConnection'
-    WorkspaceList: '1004'
+    WorkspaceList: '1005'
     CucumberReportPath: 'gherkin-results'
