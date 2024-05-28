@@ -10,10 +10,11 @@ trigger:
 pool: 'Azure Pipelines'
 
 steps:
-- task: octane-start-task@1
+- task: octane-start-task@2
   inputs:
     OctaneServiceConnection: 'OctaneNightlyConnection'
-    WorkspaceList: '1004'
+    WorkspaceList: '1002'
+    CreatePipelineCheckbox: true
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -25,8 +26,8 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean test'
     options: '-Dmaven.test.failure.ignore=true'
-- task: octane-end-task@1
+- task: octane-end-task@2
   inputs:
     OctaneServiceConnection: 'OctaneNightlyConnection'
-    WorkspaceList: '1004'
+    WorkspaceList: '1002'
     CucumberReportPath: 'gherkin-results'
